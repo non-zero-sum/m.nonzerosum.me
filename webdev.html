@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WebDev I Forget</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="colours.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/e50d4ab4f7.js" crossorigin="anonymous"></script>
+    <link href="prism-dark.css" rel="stylesheet" />
+    <link href="prism-light.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <script src="prism.js"></script>
+    <header>TODO: set up a page header</header>
+    <nav>
+        <menu><a href="#html5-title">html5</a></menu>
+    </nav>
+    <main aria-labelledby="main-title" class="center-flow">
+        <h1 id="main-title">My web development stream of conciousness</h1>
+        <p>This page contains practical demos of web development techniques that I enjoy using, but
+            regularly forget. The order is not (entirely) arbitrary, it's the order I encountered the concepts as i was
+            construction this site. <em>Tres meta, no.</em>
+        </p>
+        <aside>This is a work in progress!</aside>
+        <article aria-label="HTML5 semantic elements and ARIA values">
+            <h2 aria-hidden="true">HTML<i class="fa-brands fa-html5 fa-lg"></i>
+                semantic elements</h2>
+            <blockquote cite="https://developer.mozilla.org/en-US/docs/Glossary/HTML5">The term HTML5 is essentially a
+                buzzword that refers to a set of modern web technologies
+                <cite><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5">mdn web docs</a></cite>
+            </blockquote>
+            <p>By using the right semantic elements in my HTML I get more maintainable code, and a cleaner Accessibility
+                tree. In this page I am using the following structure.</p>
+            <pre>
+<code class="language-html">&lt;html&gt;
+&lt;body&gt;
+    &lt;main&gt;
+        &lt;!-- summary content --&gt;
+        &lt;article&gt;
+            &lt;!-- article content --&gt;
+        &lt;/article&gt;
+        &lt;article&gt;
+            &lt;section&gt;
+                &lt;!-- section content --&gt;
+            &lt;/section&gt;
+            &lt;!-- repeat as needed --&gt;
+        &lt;/article&gt;
+        &lt;!-- repeat as needed --&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <p>In the same way there should only be one <code class="language-html">&lt;h1&gt;</code> on a page there
+                should also only be one <code class="language-html">&lt;main&gt;</code>. On the other hand <code
+                    class="language-html">&lt;article&gt;</code> and
+                <code class="language-html">&lt;section&gt;</code> repeat as needed. In some cases (like this one you
+                are reading) an article isn't large enough to need to be broken down any further.
+            </p>
+            <p>In each article or section I use the following:</p>
+            <ul>
+                <li><code class="language-html">&lt;h2&gt; | &lt;h3&gt;</code> for
+                    article or section headings respectively. In most cases these are linked by their <code
+                        class="language-html">id</code> to their parent via the <code
+                        class="language-html">aria-labelledby</code> property of the parent, but in cases where they
+                    contain icons I instead make them <code class="language-html">aria-hidden</code> and use an <code
+                        class="language-html">aria-label</code> on the parent</li>
+                <li><code class="language-html">&lt;blockquote&gt;</code> for quoting and attributing external sources
+                </li>
+                <li><code class="language-html">&lt;aside&gt;</code> for whimsy and hints.</li>
+                <li><code class="language-html">&lt;pre&gt;&lt;code&gt; | &lt;code&gt;</code> for code snippets. These
+                    are styled using <a href="https://prismjs.com/index.html">PRISM</a> by <a
+                        href="https://lea.verou.me/">Lea Verou</a>.</li>
+                <li><code class="language-html">&lt;i&gt;</code> for <a href="https://fontawesome.com/">Font
+                        Awesome</a> icons. This is a bit of a controversial one. <code
+                        class="language-html">&lt;i&gt;</code> used to mean <em>italic</em>, but now I tend to use <code
+                        class="language-html">&lt;em&gt;</code> for that. Strictly it now means <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/i">Idiomatic
+                        Text</a>, but I (and a lot of other people) use it for icons.
+                </li>
+            </ul>
+            <p>
+                An of course the classics (<code
+                    class="language-html">&lt;p&gt;, &lt;a&gt;, &lt;ul&gt;&lt;li&gt;, &lt;em&gt;, &lt;strong&gt;</code>,
+                etc.), for article introductory text and for section content.
+            </p>
+        </article>
+        <article aria-labelledby="colours-title">
+            <h2 id="colours-title">Colours</h2>
+            <section aria-labelledby="picking-colours-title">
+                <h3 id="picking-colours-title">Picking Colours</h3>
+                <p>Let's be honest, picking colours is hard and subjective. I could use <a
+                        href="https://www.canva.com/colors/color-wheel/">colour theory</a>, I could pick colours
+                    directly from my site images, I could scry the hex codes using tealeaves in a dainty china cup.
+                    Whatever approach I took, someone wouldn't like the end result (probably me).</p>
+                <p>To distract myself from the above I often start with the basics: black and white. Easy right?
+                    There are even named CSS colours for them. But they can be a bit harsh, and sometimes difficult are
+                    harsh so I use these instead:</p>
+                <ul>
+                    <li><code class="language-css">hsl(0 72% 7%)</code> a tiny bit softer than a true black</i>; and
+                    </li>
+                    <li><code class="language-css">hsl(240 100% 99%)</code> a.k.a Ghost White</li>
+                </ul>
+                <blockquote>Ghost White is your go-to for a hint of coolness, like a gentle whisper compared to the
+                    shout of pure white<cite><a
+                            href="https://medium.com/design-bootcamp/alternative-colors-for-pure-white-in-ui-ux-design-f861ab5a33d7">Alternative
+                            colors for pure white in UI/UX design</a></cite></blockquote>
+                <p>From there I move on to (other peoples) brand colours. These can be easy; someone, somewhere has
+                    already put in the effort of picking the colours and (usually) deciding on the light and dark
+                    variants. For example on this page there are two brand logos:</p>
+                <ul>
+                    <li>
+                        <i class="fa-brands fa-html5 fa-2xl" style="color:hsl(12 77% 52%);"></i> The <a
+                            href="https://www.w3.org/html/logo/">HTML5
+                            logo</a> by <a href="https://www.w3.org/"><abbr
+                                title="World Wide Web Consortium">W3C</abbr></a>,
+                        they use
+                        <code class="language-css">hsl(12 77% 52%)</code> and <code
+                            class="language-css">hsl(18 87% 55%)</code>
+                        in their logo.
+                    </li>
+                    <li><i class="fa-brands fa-css fa-2xl" style="color:rebeccapurple;"></i>
+                        a <a href="https://github.com/CSS-Next/logo.css">CSS logo</a> by the CSS-Next Community
+                        Group,
+                        they use
+                        <code class="language-html">rebeccapurple</code> in honour of the daughter of <a
+                            href="https://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/">Eric A. Meyer</a>
+                    </li>
+                </ul>
+                <aside>I am using <a href="https://fontawesome.com/">Font Awesome's</a> brand icons
+                </aside>
+                <p>So... having sufficiently distracted myself with black, white and
+                    other peoples colours and spent longer than either I meant
+                    to or was reasonable researching <a href="https://en.wikipedia.org/wiki/Color_psychology">colour
+                        psychology</a>, I picked purple because I like it and pink because it's fun.</p>
+                <!-- <aside>You might notice the colours here aren't quite right. more on that later</aside> -->
+                <ul>
+                    <li><code class="language-css">hsl(279 63% 50%)</code> <i class="fa-solid fa-droplet"
+                            style="color: var(--hero-base);" title="a rich purple"></i>
+                        the base "hero" colour used for headings, link hover states, and the background for <code
+                            class="language-html">&lt;blockquotes&gt;</code>.
+                    </li>
+                    </li>
+                    <li><code class="language-css">hsl(330 100% 50%)</code> <i class="fa-solid fa-droplet"
+                            style="color: var(--accent-base);" title="hot pink"></i> the accent colour used for
+                        un-hovered link text, asides and other accenting
+                    </li>
+                </ul>
+                <p>That's it, done! Now onto the next subject, right? Right...?</p>
+            </section>
+            <section aria-labelledby="contrast-title">
+                <h3 id="contrast-title">Colour contrast</h3>
+
+                <p>Not so fast. Colours are all well and good, but contrast is key to making a site readable, what looks
+                    good to me might be hard to read for someone with a vision impairment; what looks awesome on a 40"
+                    5K monitor in indirect morning light might be unreadable on a 5.5" phone with harsh sun on it. </p>
+                <p>Following the <abbr title="Web Content Accessibility Guidelines">WGAC</abbr> <a
+                        href="https://www.w3.org/TR/WCAG/#contrast-minimum">contrast guidelines</a>
+                    I aim
+                    for a AAA contrast ratio of 7:1 or better. While this is not technically necessary for
+                    larger text
+                    (which can be as low as 4.5:1), I find the higher ratios visually pleasing.</p>
+                <p>Although brightness isn't the only factor in contrast, I find it easiest to start my thinking
+                    there, which is why I use the <code class="language-css">hsl()</code> colour space. Then to check
+                    the contrast ratio of any given colour pair, I use the <a
+                        href="https://contrast-ratio.org/">contrast ratio
+                        checker</a>originally created by <a href="https://lea.verou.me/">Lea Verou</a>. It works with
+                    multiple
+                    colour spaces and supports
+                    using the up and down arrows to adjust individual values.
+                </p>
+            </section>
+            <section aria-labelledby="preference-title">
+                <h3 id="preference-title">Honoring user preference</h3>
+                <p>I like dark mode, I use it on all my devices, I develop and preview in dark mode, but I don't want to
+                    impose that preference on the visitors to å site. To do this I:</p>
+                <ul>
+                    <li>Setting <code class="language-css">color-scheme: dark light;</code> on the <code
+                            class="language-css">html</code> element so that the browser adjusts the default colors of
+                        scrollbars and other interaction UI, and the default colors of form controls.</li>
+                    <li>Using the <code class="language-css">light-dark()</code> function to adjust my site colours.
+                    </li>
+                    <li>
+                        <code class="language-css">TODO: Provide a switcher to toggle between light and dark mode</code>
+                        </code>
+                    </li>
+                </ul>
+                <aside>It's okay to change your mind, I don't assume someones System Preferences are always what they
+                    want
+                </aside>
+            </section>
+            <section aria-labelledby="colour-mod-title">
+                <h3 id="colour-mod-title">Modifying base colours </h3>
+                <p>Once I've picked my base colours it's time to apply the necessary modifications to meet the contrast
+                    goals, honour the user preference, and apply my custom colours. I start with custom properties for
+                    my base colours.</p>
+                <pre>
+<code class="language-css">:root {
+    --hero-base: hsl(279 63% 50%);
+    --accent-base: hsl(330 100% 50%);
+}</code></pre>
+                <p>I don't often use these directly, but they are the anchor for everything else. Next I meed to modify
+                    these base colours making each brighter for the dark theme and darker for the light theme.</p>
+                <p>Thankfully CSS has a way to build new colours from existing ones: <code
+                        class="language-css">color(from ...)</code> allows us to clone and modify colours by specifying
+                    which properties we want to keep and which we want to change or add.</p>
+                <p>For the light theme I darken my two colours by reducing their lightness value, for the dark theme i
+                    lighten them in the same way. I leave the hue and
+                    saturation alone by using the placeholder letters <code class="language-css">h</code> and <code
+                        class="language-css">s</code>.
+
+                </p>
+                <p>Light theme:</p>
+                <ul>
+                    <li><code class="language-css">hsl(from var(--hero-base) h s 35%)</code> from <i
+                            class="fa-solid fa-droplet" title="a rich purple" style="color: var(--hero-base)"></i> to <i
+                            class="fa-solid fa-droplet" title="a dark purple" style="color: var(--hero-dark)"></i></li>
+                    <li><code class="language-css">hsl(from var(--accent-base) h s 33%)</code> from <i
+                            class="fa-solid fa-droplet" title="hot pink" style="color: var( --accent-base)"></i> to <i
+                            class="fa-solid fa-droplet" title="" style="color: var( --accent-dark)"></i>
+                </ul>
+                <p>Dark theme:</p>
+                <ul>
+                    <li><code class="language-css">hsl(from var(--hero-base) h s 75%)</code> from <i
+                            class="fa-solid fa-droplet" title="a rich purple" style="color: var(--hero-base)"></i> to <i
+                            class="fa-solid fa-droplet" title="a pale purple" style="color: var(--hero-light)"></i></li>
+                    <li><code class="language-css">hsl(from var(--accent-base) h s 69%)</code> from <i
+                            class="fa-solid fa-droplet" title="hot pink" style="color: var( --accent-base)"></i> to <i
+                            class="fa-solid fa-droplet" title="" style="color: var( --accent-light)"></i>
+                    </li>
+                </ul>
+                <p>Not huge changes, but enough to make them more readable on their respective backgrounds.</p>
+                <aside>Hopefully you see the benefit of these changes in your preferred theme</aside>
+
+
+            </section>
+            <section aria-labelledby="apply-colours-title">
+                <h3 id="apply-colours-title">Bringing it all together</h3>
+                <p>First up I apply my "not quite" black and white to the background and text of the whole page (I use
+                    custom properties to make it easier to change them later if I need to)</p>
+                <pre>
+<code class="language-css">:root {
+    /* almost black */
+    --black: hsl(0 72% 7%);
+    /* not quite black */
+    --white: hsl(240 100% 99%);
+    /* hero colours */
+    --hero-base: hsl(279 63% 50%);
+    --hero-dark: hsl(from var(--hero-base) h s 35%);
+    --hero-light: hsl(from var(--hero-base) h s 75%);
+    --hero-colour: light-dark(var(--hero-dark), var(--hero-light));
+    /* accent colours */
+    --accent-base: hsl(330 100% 50%);
+    --accent-dark: hsl(330 100% 33%);
+    --accent-light: hsl(330 100% 69%);
+    --accent-colour: light-dark(var(--accent-dark), var(--accent-light));
+}
+
+html {
+    /* honour the user preference */
+    color-scheme: dark light;
+}
+
+body {
+    /* soften the default black and white */
+    background-color:light-dark(var(--white)), var(--black);
+    color: light-dark(var(--black), var(--white));
+}
+
+h1,h2 {
+    /* use the hero colour for headings */
+    color: var(--hero-colour);
+}
+
+a {
+    /* use the accent colour for links */
+    color: var(--accent-colour);
+    /* use the hero colour for link underlines */
+    text-decoration-color: var(--link-hover-colour);
+    
+    &:hover,
+    &:focus-visible {
+        /* to give a visual change on hover */
+        color: var(--link-hover-colour);
+    }
+}
+
+/* ... */</code></pre>
+            </section>
+        </article>
+        <!-- <article aria-label="CSS reset">
+            <h2 aria-hidden="true"><i class="fa-brands fa-css fa-2xl"></i>reset</span></h2>
+            <p></p>
+        </article>
+        <article aria-label="Text">
+            <h2 aria-hidden="true"><i class="fa-solid fa-text"></i>ext</h2>
+        </article> -->
+
+        <article aria-labelledby="references-title">
+            <h2 id="references-title">References</h2>
+            <ul class="reference-list">
+                <li><a href="https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/">Providing Accessible
+                        Names and Descriptions</a> by W3C</li>
+                <li>CSS reset inspired
+                    by <a href=" https://youtu.be/cCAtD_BAHNw">Kevin Powell</a></li>
+                <li><a href="https://contrast-ratio.org/">Contrast ratio checker</a> with thanks to <a
+                        href="https://lea.verou.me/">Lea Verou</a></li>
+                <li><a href="https://lawsofux.com/">Laws of UX</a></li>
+                <li><a href="https://spencermortensen.com/articles/typographic-scale/">The typographic scale</a></li>
+                <li><a href="https://codingislove.com/css-speech-bubbles/">CSS only speech bubbles</a>, although I've
+                    never managed to get the <code class="language-css">:after</code> to work</li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">Using
+                        media queries</a> from Mozilla Developer Network</li>
+                <li><a href="https://prismjs.com/index.html">PRISM</a> by <a href="https://lea.verou.me/">Lea Verou</a>
+                </li>
+            </ul>
+        </article>
+    </main>
+    <footer>TODO: setup a page footer</footer>
+</body>
+
+</html>

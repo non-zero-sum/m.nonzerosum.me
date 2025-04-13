@@ -1,0 +1,168 @@
+/* ============================= */
+/* start of reset and essentials */
+/* ============================= */
+:root {
+    --black: hsl(0 72% 7%);
+    /* almost black */
+    --white: hsl(240 100% 99%);
+    /* not quite black */
+
+    --h1-size: 2.0582rem;
+    --h2-size: 1.618rem;
+
+    --text-size-small: .7862rem;
+    --text-size-large: 1.618rem;
+
+    --link-hover-colour: var(--hero-colour);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    /* Get rid of all font sizes and heights */
+}
+
+
+html {
+    color-scheme: dark light;
+    /* Default dark */
+    hanging-punctuation: first last;
+    /* Not supported in Chrome */
+}
+
+
+body {
+    min-height: 100dvh;
+    font-family: var(--font-family, system-ui);
+    letter-spacing: .12em;
+    line-height: 1.5;
+    font-weight: normal;
+    margin-inline: 5vw;
+    background-color: var(--background-colour, light-dark(var(--white)), var(--black));
+    color: var(--text-colour, light-dark(var(--black), var(--white)));
+}
+
+/* Media responsive */
+img,
+picture,
+svg,
+video {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+    shape-margin: 1rem;
+}
+
+h1,
+h2 {
+    text-wrap: balance;
+    line-height: .95;
+    color: var(--hero-colour);
+    max-width: 35ch
+}
+
+h1 {
+    font-size: var(--h1-size, 2.0582rem);
+}
+
+h2 {
+    font-size: var(--h2-size, 1.618rem);
+}
+
+
+h3 {
+    font-size: 1.272rem;
+}
+
+p,
+blockquote,
+aside,
+li {
+    max-width: 75ch;
+    text-wrap: pretty;
+    /* Prevents orphans on lines */
+}
+
+em,
+blockquote,
+aside {
+    font-style: italic;
+}
+
+a {
+    text-underline-offset: .3em;
+    color: var(--accent-colour);
+    text-decoration-color: var(--link-hover-colour);
+    font-weight: 500;
+    /* white-space: nowrap; */
+
+
+}
+
+abbr {
+    text-decoration: none;
+}
+
+@media (hover) {
+    abbr {
+        text-decoration: underline dotted;
+        text-decoration-color: var(--link-hover-colour);
+        text-underline-offset: .3em;
+    }
+
+    a:has(abbr) {
+        text-decoration: none;
+    }
+
+    a:hover,
+    a:focus-visible {
+        color: var(--link-hover-colour);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    :has(:target) {
+        scroll-behavior: smooth;
+        scroll-padding-top: 3rem;
+    }
+}
+
+li {
+    margin-inline-start: 1.5rem;
+    list-style-type: circle;
+    list-style-position: outside;
+    padding-block: .5em;
+
+    &::marker {
+        color: var(--hero-colour);
+    }
+}
+
+.hero {
+    color: var(--hero-colour);
+}
+
+.accent {
+    color: var(--accent-colour);
+}
+
+i {
+    &.fa-css {
+        color: light-dark(rebeccapurple, hsl(from rebeccapurple h 52% 92%));
+        vertical-align: -.1rem;
+    }
+
+    &.fa-html5 {
+        color: light-dark(hsl(12 77% 52%), hsl(18 87% 55%));
+    }
+}

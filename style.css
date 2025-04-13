@@ -1,0 +1,137 @@
+header,
+footer,
+nav {
+    display: none;
+}
+
+/* ================ */
+/* now into layout  */
+/* ================ */
+
+h1,
+h2 {
+    padding-block-end: 1em;
+}
+
+
+h2 {
+    padding-block-start: 2.5em;
+}
+
+
+p,
+blockquote {
+    padding-block: 1em;
+}
+
+h3 {
+    padding-block-start: 1em;
+}
+
+section:first-of-type>h3 {
+    padding-block-start: 0;
+    /* remove leading space for the first section in a  */
+}
+
+/* ================ */
+/* page specific formatting  */
+/* ================ */
+
+.talk,
+blockquote,
+aside {
+
+    font-size: var(--text-size-small);
+    border: 4px solid var(--quote-colour);
+    border-radius: .25rem;
+    padding-block: var(--h2-size);
+    padding-inline: var(--text-size-small);
+    text-align: center;
+    position: relative;
+    text-wrap: balance;
+    background-color: hsl(from var(--quote-colour) h s l / .05);
+    width: min(60ch, 100%);
+
+    margin-block: var(--text-size-small);
+    font-weight: 500;
+}
+
+
+.talk.left,
+blockquote {
+    --quote-colour: var(--hero-colour);
+
+    @media (width > 80rch) {
+        margin-left: -5rch;
+    }
+
+    &::before {
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        border-left: 10px solid transparent;
+        border-right: 10px solid var(--hero-colour);
+        border-top: 10px solid var(--hero-colour);
+        border-bottom: 10px solid transparent;
+        left: -21px;
+        top: 6px;
+    }
+
+
+    >cite {
+        text-wrap: balance;
+        padding-block-start: 1em;
+        display: block;
+        font-size: .9em;
+        text-align: right;
+        padding-inline-start: 40%;
+
+        &::before {
+            content: '— ';
+        }
+
+        >a {
+            text-wrap: balance;
+        }
+    }
+}
+
+.talk.right,
+aside {
+
+    --quote-colour: var(--accent-colour);
+    margin-inline-start: auto;
+
+    @media (width > 80rch) {
+        margin-inline-end: -5rch;
+    }
+
+    &::before {
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        border-left: 10px solid var(--accent-colour);
+        border-right: 10px solid transparent;
+        border-top: 10px solid var(--accent-colour);
+        border-bottom: 10px solid transparent;
+        right: -20px;
+        top: 6px;
+    }
+}
+
+
+
+.reference-list li {
+    font-size: var(--text-size-small);
+    line-height: 1.7;
+
+}
+
+
+main.center-flow {
+    padding-block: 2rem;
+    max-width: 90rch;
+    margin: auto;
+}

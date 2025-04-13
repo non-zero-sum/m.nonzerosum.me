@@ -1,0 +1,3 @@
+.scratchpad/
+images/*
+!images/.keep
